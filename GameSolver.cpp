@@ -69,7 +69,7 @@ vector<vector<Player>> GameSolver::progress_states(vector<Player> &to_process_te
         if (current.day < current.max_day && !current.bought_last) {
             int days_left = current.max_day - current.day;
             int food_multi = days_left > 1 ? 2 : 1;
-            int max_food = min(min(current.gold / current.item_shop[_Food][_buy], Game::check_weight_left(current) / current.item_shop[_Food][_weight]), (current_food_cost * days_left) + 2 * (days_left - 1) - current.food);
+            int max_food = min(min(current.gold / max(current.item_shop[_Food][_buy],1), Game::check_weight_left(current) / max(current.item_shop[_Food][_weight], 1)), (current_food_cost * days_left) + 2 * (days_left - 1) - current.food);
             int needed_food = max(0, food_multi * current_food_cost - current.food);
 
             for (; needed_food <= max_food; needed_food++) {
