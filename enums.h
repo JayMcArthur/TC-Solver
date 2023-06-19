@@ -159,11 +159,14 @@ enum game_actions {
 };
 
 struct ga_data {
-    ga_data(game_actions _action, const int (&_buy_data)[]) {
+    ga_data(game_actions _action, const int food, const int spice, const int pottery, const int marble, const int silk, const int jewelry) {
         action = _action;
-        for (int i = 0; i < 6; ++i) {
-            buy_data[i] = _buy_data[i];
-        }
+        buy_data[0] = food;
+        buy_data[1] = spice;
+        buy_data[2] = pottery;
+        buy_data[3] = marble;
+        buy_data[4] = silk;
+        buy_data[5] = jewelry;
     };
     ga_data(game_actions _action,  const npcs &_npc_data) {
         action = _action;
@@ -176,6 +179,9 @@ struct ga_data {
     ga_data(game_actions _action, const witch_options _witch_data) {
         action = _action;
         witch_data = _witch_data;
+    };
+    ga_data(game_actions _action) {
+        action = _action;
     };
     game_actions action;
     int buy_data[6] {};

@@ -309,7 +309,12 @@ void Game::find_buy(Player &player, const int &food_needed, const bool &only_foo
 
 void Game::auto_game_loop(Player &player, const vector<ga_data> &event_list) {
     for (auto &event : event_list) {
-        start_of_day(player);
+        if (!player.day_start_skip) {
+            start_of_day(player);
+        } else {
+            player.day_start_skip = false;
+        }
+
         switch (event.action) {
             case _a_buy:
                 event_buy_items(player, event.buy_data);
@@ -325,9 +330,11 @@ void Game::auto_game_loop(Player &player, const vector<ga_data> &event_list) {
                 break;
             case _a_merchant:
                 event_merchant(player, event.merch_data);
+                player.day_start_skip = true;
                 break;
             case _a_witch:
                 event_witch(player, event.witch_data);
+                player.day_start_skip = true;
                 break;
         }
     }

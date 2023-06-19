@@ -6,11 +6,9 @@
 int main() {
     std::vector<ga_data> que;
     que.emplace_back(_a_npc, _Trader);
-    que.emplace_back(_a_npc, _Trader);
-    que.emplace_back(_a_npc, _Trader);
-    que.emplace_back(_a_npc, _Camel);
+    que.emplace_back(_a_buy, 9, 2, 0, 0, 0, 0);
 
-    GameSolver solver(10000, _Normalia, true, true);
+    GameSolver solver(250000, _L_Exquise, true, true);
     solver.find_solve_loop();
     return 0;
 }

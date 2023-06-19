@@ -20,7 +20,9 @@ public:
         }
         to_process.emplace_back(start_player);
     }
-
+    ~GameSolver() {
+        delete game;
+    }
     void find_solve_loop();
     void find_solve_threads();
 
@@ -31,8 +33,7 @@ private:
     vector<Player> finished = {};
     int limit;
 
-    void sort_solves();
-    vector<vector<Player>> progress_states(vector<Player> to_process);
+    vector<vector<Player>> progress_states(vector<Player> &to_process);
     static bool day_in_array(const int (&list)[3], const int &value);
     void print_solves();
 };

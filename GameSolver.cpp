@@ -8,23 +8,20 @@
 
 void GameSolver::print_solves() {
     std::cout << "Printing Solves\n\n";
-    sort_solves();
+    sort(finished.begin(), finished.end(), greater <>());
+    finished.resize(10);
     int place = 1;
     for (const auto& player : finished) {
         cout << "Place " << place << ": " << player.points << "\n";
         copy(player.actions.begin(),
                   player.actions.end(),
-                  std::ostream_iterator<string>(std::cout, " "));
+                  std::ostream_iterator<string>(std::cout, ", "));
         cout << "\n\n";
+        place++;
     }
 }
 
-void GameSolver::sort_solves() {
-    sort(finished.begin(), finished.end(), greater <>());
-    finished.resize(10);
-}
-
-vector<vector<Player>> GameSolver::progress_states(vector<Player> to_process_temp) {
+vector<vector<Player>> GameSolver::progress_states(vector<Player> &to_process_temp) {
     vector<vector<Player>> hold = {{}, {}};
     const int reprocess = 0;
     const int solved = 1;
@@ -42,10 +39,14 @@ vector<vector<Player>> GameSolver::progress_states(vector<Player> to_process_tem
             // Merchant Event
             if (game->merch_on && !current.merchant_happened and (current.call_merchant || day_in_array(game->merch_days, current.day))) {
                 for (auto event : ALL_MERCH_OPTIONS) {
-                    Player merch_event = current;
-                    Game::event_merchant(merch_event, event);
-                    merch_event.day_start_skip = true;
-                    to_process_temp.emplace_back(merch_event);
+                    to_process_temp.emplace_back(current);
+                    Game::event_merchant(to_process_temp.back(), event);
+                    to_process_temp.back().day_start_skip = true;
+
+                    //Player merch_event = current;
+                    //Game::event_merchant(merch_event, event);
+                    //merch_event.day_start_skip = true;
+                    //to_process_temp.emplace_back(merch_event);
                 }
             }
 
@@ -75,7 +76,7 @@ vector<vector<Player>> GameSolver::progress_states(vector<Player> to_process_tem
                 Player to_buy_everything = current;
                 Game::find_buy(to_buy_everything, needed_food);
                 hold[reprocess].emplace_back(to_buy_everything);
-                if (needed_food > 0) {
+                if (needed_food > 0 && current.gold - (needed_food * current.item_shop[_Food][_buy]) >= current.item_shop[_Spice][_buy]) {
                     Player to_buy_food = current;
                     Game::find_buy(to_buy_food, needed_food, true);
                     hold[reprocess].emplace_back(to_buy_food);
@@ -164,14 +165,17 @@ void GameSolver::find_solve_loop() {
         day += 1;
         cout << "Processing Day " << day << " - #" << to_process.size() << "\n";
 
-        sort(to_process.begin(), to_process.end(), greater <>());
-        finished.resize(limit);
-
         vector<vector<Player>> result = progress_states(to_process);
-        to_process = result[0];
-        for (auto item : result[1]) {
-            finished.emplace_back(item);
+        to_process.clear();
+        if (result[0].size() > limit) {
+            sort(result[0].begin(), result[0].end(), greater <>());
+            result[0].resize(limit);
         }
+        to_process = std::move(result[0]);
+        finished.insert(finished.end(),
+                        std::make_move_iterator(result[1].begin()),
+                        std::make_move_iterator(result[1].end()));
+        result.clear();
     }
     print_solves();
 }
