@@ -6,12 +6,15 @@
 #include <bits/stdc++.h>
 #include "GameSolver.h"
 
-void GameSolver::print_solves() {
+void GameSolver::print_solves(const int &amount) {
     std::cout << "Printing Solves\n\n";
     sort(finished.begin(), finished.end(), greater <>());
-    finished.resize(10);
+    vector<Player> temp_places;
+    temp_places.insert(temp_places.end(),
+                std::make_move_iterator(finished.begin()),
+                std::make_move_iterator(finished.begin() + amount));
     int place = 1;
-    for (const auto& player : finished) {
+    for (const auto& player : temp_places) {
         cout << "Place " << place << ": " << player.points << "\n";
         copy(player.actions.begin(),
                   player.actions.end(),
@@ -48,6 +51,7 @@ vector<vector<Player>> GameSolver::progress_states(vector<Player> &to_process_te
                     //merch_event.day_start_skip = true;
                     //to_process_temp.emplace_back(merch_event);
                 }
+                continue; // Did Merch event
             }
 
             // Witch Event
@@ -58,6 +62,7 @@ vector<vector<Player>> GameSolver::progress_states(vector<Player> &to_process_te
                     witch_event.day_start_skip = true;
                     to_process_temp.emplace_back(witch_event);
                 }
+                continue; // Did Witch Event
             }
         } else {
             current.day_start_skip = false;
@@ -158,7 +163,47 @@ bool GameSolver::day_in_array(const int (&list)[3], const int &value) {
 void GameSolver::find_solve_threads() {
 }
 
+void GameSolver::find_solve_depth() {
+    int round = 0 ;
+    vector<Player> temp;
+    while (!to_process.empty()) {
+        round += 1;
+        cout << "Processing Round " << round << " - #" << to_process.size() << "\n";
+
+        if (to_process.size() > limit + 1) {
+            temp.insert(temp.end(),
+                        std::make_move_iterator(to_process.end() - limit),
+                        std::make_move_iterator(to_process.end()));
+            to_process.resize(to_process.size()-limit);
+            //to_process.erase(to_process.end(), to_process.end()-limit);
+        } else {
+            temp.insert(temp.end(), std::make_move_iterator(to_process.begin()),
+                        std::make_move_iterator(to_process.end()));
+            to_process.clear();
+        }
+
+        vector<vector<Player>> result = progress_states(temp);
+        temp.clear();
+
+        to_process.insert(to_process.end(),
+                          std::make_move_iterator(result[0].begin()),
+                          std::make_move_iterator(result[0].end()));
+        finished.insert(finished.end(),
+                        std::make_move_iterator(result[1].begin()),
+                        std::make_move_iterator(result[1].end()));
+        result.clear();
+
+        if (finished.size() >= 10000) {
+            sort(finished.begin(), finished.end(), greater <>());
+            finished.resize(10);
+            print_solves(1);
+        }
+    }
+    print_solves(10);
+}
+
 void GameSolver::find_solve_loop() {
+    // TODO - Consider if your already at max day or less then 10
     int day = to_process[0].day;
 
     while (!to_process.empty()) {
@@ -177,5 +222,5 @@ void GameSolver::find_solve_loop() {
                         std::make_move_iterator(result[1].end()));
         result.clear();
     }
-    print_solves();
+    print_solves(10);
 }

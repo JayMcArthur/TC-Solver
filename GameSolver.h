@@ -25,6 +25,7 @@ public:
     }
     void find_solve_loop();
     void find_solve_threads();
+    void find_solve_depth();
 
 private:
     Game *game;
@@ -35,7 +36,7 @@ private:
 
     vector<vector<Player>> progress_states(vector<Player> &to_process);
     static bool day_in_array(const int (&list)[3], const int &value);
-    void print_solves();
+    void print_solves(const int &amount);
 };
 
 
