@@ -19,7 +19,7 @@ void Game::event_buy_items(Player &player, const int (&to_buy)[6]) {
                    to_buy[_Jewelry] * player.item_shop[_Jewelry][_buy];
     if (player.gold < 0){
         string gold_value = to_string(player.gold);
-        throw runtime_error(gold_value);
+        throw negative_gold_error();
     }
     player.food += to_buy[_Food];
     player.spice += to_buy[_Spice];

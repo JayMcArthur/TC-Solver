@@ -21,7 +21,7 @@ public:
     bool merch_on;
     const int merch_days[3] = {5, 6, 7};
     bool witch_on;
-    const int witch_days[3] = {8, 9, 10};
+    const int witch_days[3] = {9, 10, 11};
 
     static void event_buy_items(Player &player, const int (&to_buy)[6]);
     static void event_sell_items(Player &player);

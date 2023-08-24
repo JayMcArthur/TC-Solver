@@ -180,7 +180,7 @@ struct ga_data {
         action = _action;
         witch_data = _witch_data;
     };
-    ga_data(game_actions _action) {
+    explicit ga_data(game_actions _action) {
         action = _action;
     };
     game_actions action;
