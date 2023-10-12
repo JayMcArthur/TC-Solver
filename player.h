@@ -18,9 +18,11 @@ struct Player {
     int marble = 0;
     int silk = 0;
     int jewelry = 0;
+    int fang_mo_pot = 0;
     // Crew
     int trader = 1;
     int camel = 1;
+    int food_consumption = 2;
     // Stores
     int item_shop[6][3] = {
             //     Buy, Sell, Weight,      Sell Value, Profit per weight
@@ -41,8 +43,7 @@ struct Player {
     int daily_income = 0;
     double interest_rate = 1.50;
     bool set_interest = false;
-    bool one_stable_interest = false;
-    bool cornucopia = false;
+    bool quick_interest = false;
     bool statue = false;
     bool hand_of_midas = false;
     bool merch_discount = false;

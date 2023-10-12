@@ -36,7 +36,7 @@ enum npc_data {
 };
 
 enum merch_options {
-    _Cornucopia = 0,   // Food consumption -2 TODO This does not apply to the future...
+    _Cornucopia = 0,   // Food consumption -2
     _Route_to_Mahaji,  // Spice sell +20
     _Wooden_Statuette, // Gain a Statue (+500 points per Trader and Camel)
     _Canvas_Bag,       // Carry Weight +20
@@ -120,7 +120,7 @@ enum town_options {
     _Jilliqo,      // 16 - Daily Gold Income +10
     _Gayawaku,     // 17 - Food is weightless
     _Vilparino,    // 18 - Strange Merchant 20% Sale!
-    _Sanctifan,    // 19 - One Free Collect Interest Action TODO - see if this doesn't use a day
+    _Sanctifan,    // 19 - One Free Collect Interest Action
     _Mehaz,        // 20 - Camels don't need food
     _Ipartus       // 21 - Silk Cost -100
 };
@@ -188,8 +188,6 @@ struct ga_data {
     npcs npc_data {};
     merch_options merch_data {};
     witch_options witch_data {};
-
-
 };
 
 #endif //TRADING_CARAVAN_SOLVER_ENUMS_H
