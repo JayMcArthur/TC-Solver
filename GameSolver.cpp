@@ -173,6 +173,7 @@ bool GameSolver::day_in_array(const int (&list)[3], const int &value) {
 }
 
 void GameSolver::find_solve_threads() {
+
 }
 
 void GameSolver::find_solve_depth() {
