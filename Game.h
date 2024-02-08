@@ -22,7 +22,7 @@ public:
     static void event_sell_items(Player &player);
     static void event_buy_npc(Player &player, const npcs &selection);
     static void event_interest(Player &player);
-    static void event_merchant(Player &player, const merch_options &selection);
+    static bool event_merchant(Player &player, const merch_options &selection);
     static void event_witch(Player &player, const witch_options &selection);
     static int check_has_items(const Player &player);
     static int check_points(const Player &player, const string &type);

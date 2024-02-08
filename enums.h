@@ -7,9 +7,9 @@
 
 #include <string>
 #include <unordered_map>
+#include <cstdint>
 
-
-enum items {
+enum items : uint8_t {
     _Food = 0,
     _Spice,
     _Pottery,
@@ -18,24 +18,24 @@ enum items {
     _Jewelry
 };
 
-enum item_data {
+enum item_data: uint8_t {
     _buy = 0,
     _sell,
     _weight
 };
 
-enum npcs {
+enum npcs: uint8_t {
     _Trader = 0,
     _Camel
 };
 
-enum npc_data {
+enum npc_data: uint8_t {
     _cost = 0,
     _effect,
     _eat
 };
 
-enum merch_options {
+enum merch_options: uint8_t {
     _Cornucopia = 0,   // Food consumption -2
     _Route_to_Mahaji,  // Spice sell +20
     _Wooden_Statuette, // Gain a Statue (+500 points per Trader and Camel)
@@ -69,7 +69,7 @@ const std::unordered_map<merch_options, const std::string > mo_conversion = {
         {_Blue_Treasure,    "Blue Treasure"},
 };
 
-enum witch_options {
+enum witch_options: uint8_t {
     _Presents_Gift = 0,  // Carry Weight +20        -- Interest Rate -20%
     _Vertue_of_Patience, // Interest Rate is stable -- Jewelry cost +100
     _Midas_was_a_Trader, // Trader income +150      -- Marble sell *0
@@ -89,7 +89,7 @@ const witch_options ALL_WITCH_OPTIONS[] = {
         _Oasis_of_Sanctifan,
         _The_Stonecutter
 };
-const std::unordered_map<witch_options, const std::string > wo_conversion = {
+const std::unordered_map<witch_options, const std::string> wo_conversion = {
         {_Presents_Gift,      "Present's Gift"},
         {_Vertue_of_Patience, "Vertue of Patience"},
         {_Midas_was_a_Trader, "Midas was a Trader"},
@@ -100,7 +100,7 @@ const std::unordered_map<witch_options, const std::string > wo_conversion = {
         {_The_Stonecutter, "The Stonecutter"}
 };
 
-enum town_options {
+enum town_options: uint8_t {
     _Normalia = 0, // 00 - No Effect
     _Fang_Mo,      // 01 - Begin with 1 Pottery
     _L_Exquise,    // 02 - Traders don't need Food
@@ -149,7 +149,7 @@ const std::unordered_map<town_options, const std::string > to_conversion = {
         {_Ipartus,   "Ipartus"},
 };
 
-enum game_actions {
+enum game_actions: uint8_t {
         _a_buy = 0,
         _a_sell,
         _a_npc,

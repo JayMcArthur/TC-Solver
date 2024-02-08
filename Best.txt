@@ -1,0 +1,96 @@
+Normalia:
+Leaderboard: 34,848
+Place 1: 34,848 points (Partial Solution)
+['1: Trader', '2: Buy [10, 0, 0, 0, 0, 0]', '3: Trader', '4: Trader', 'Merch - Magic Cleppsydra', '5: Buy [11, 0, 0, 0, 0, 0]', '6: Camel', '7: Buy [30, 0, 0, 0, 0, 0]', '8: Trader', 'Witch - Midas was a Trader', '9: Camel', '10: Camel', '11: Buy [18, 1, 12, 0, 1, 1]', '12: Sell', '13: Buy [27, 0, 1, 0, 0, 5]', '14: Sell', '15: Interest', '16: Interest']
+
+
+Fang_Mo: Begin with 1 Pottery
+Leaderboard: 34,758
+Place 1: 34,918 points (Partial Solution)
+['1: Trader', '2: Buy [10, 0, 0, 0, 0, 0]', '3: Trader', '4: Trader', 'Merch - Magic Cleppsydra', '5: Buy [11, 0, 0, 0, 0, 0]', '6: Camel', '7: Buy [30, 0, 0, 0, 0, 0]', '8: Trader', 'Witch - Midas was a Trader', '9: Camel', '10: Camel', '11: Buy [18, 1, 12, 0, 1, 1]', '12: Sell', '13: Buy [27, 0, 1, 0, 0, 5]', '14: Sell', '15: Interest', '16: Interest']
+
+
+L_Exquise: Traders don't need Food
+Leaderboard: 56,140
+
+Processing Round 855
+Place 1: 35,588
+1: Trader, 2: Buy [10, 0, 0, 0, 0, 0], 3: Trader, 4: Trader, Merch - Magic Cleppsydra, 5: Interest, 6: Interest, 7: Came
+l, 8: Camel, Witch - Midas was a Trader, 9: Camel, 10: Buy [9, 2, 5, 0, 0, 1], 11: Sell, 12: Buy [7, 0, 11, 0, 0, 4], 13
+: Sell, 14: Buy [8, 0, 0, 0, 1, 8], 15: Sell, 16: Interest
+
+
+Mahaji: Spice sell +5
+Leaderboard: 34,859
+
+
+Tocaccialli: Max Day +1
+Leaderboard: 46,083
+
+
+Bajaar: x2 Trader income
+Leaderboard: 49,621 /56,146
+
+
+Doba_Lao: Interest Rate +20%
+Leaderboard: 38,041
+
+
+Huangoz: Marble Cost -20
+Leaderboard: 34,848
+21,681
+
+Port_Willam: Carry Weight +15
+Leaderboard: 42,296
+
+
+Moonin: Call Merchant at anytime
+Leaderboard: 36,732
+
+
+Cornecopea: Food is free
+Leaderboard: 40,281
+
+
+Eduming: Buying trader > Interest Rate +10%
+Leaderboard: 77,398
+
+
+Octoyashi: Begin with +3 Food
+Leaderboard: 37,983
+
+
+Kifuai: Begin with +10 Gold
+Leaderboard: 36,589
+
+
+Skjollird: Camel cost +5 and weight +10
+Leaderboard: 43,446
+
+
+Petrinov: Interest rate doesn't decrease
+Leaderboard: 44,447
+
+
+Jilliqo: Daily Gold Income +10
+Leaderboard: 37,050
+
+
+Gayawaku: Food is weightless
+Leaderboard: 50,104
+
+
+Vilparino: Strange Merchant 20% Sale!
+Leaderboard: 36,631
+
+
+Sanctifan: One Free Collect Interest Action
+Leaderboard: 51,130
+
+
+Mehaz: Camels don't need food
+Leaderboard: 41,853
+
+
+Ipartus: Silk Cost -100
+Leaderboard: 33,180

@@ -4,8 +4,9 @@ BUILDING ON NAS
 3: Carvan_trader_solver
 
 https://www.youtube.com/watch?v=6hW__cjXQLo
+https://askubuntu.com/questions/355565/how-do-i-install-the-latest-version-of-cmake-from-the-command-line
 
-VERSIONS
+>>>> VERSIONS <<<<
 
 Python Code - 28 Day
 Round 7,684,300,000
@@ -19,6 +20,13 @@ Version 2 - 19 Days
 Round 45266 * 10,000,000 = 452,660,000,000
 27,772 points
 
+Version 3 - 15 hours
+Processing Round 1424 * 10,000,000 = 14,240,000,000
+Place 1: 25,744
+
 Adding Multithreading
 https://www.educative.io/blog/modern-multithreading-and-concurrency-in-cpp
 https://www.geeksforgeeks.org/multithreading-in-cpp/#
+
+
+

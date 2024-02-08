@@ -56,7 +56,7 @@ struct Player {
     bool witch_happened = false;
     bool day_start_skip = false;
     bool bought_last = false;
-    std::vector<std::string> actions = {}; // 15 Days, 1 Day from Town, Merch, & Witch, 1 from Merch & Witch Event
+    std::vector<std::string> actions = {}; // 15 Days, 1 Day from Town, Merch, & Witch
     int points = 0;
 
     bool operator < (const Player& player) const {
